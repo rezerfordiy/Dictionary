@@ -1,0 +1,10 @@
+{
+	"id": "mandarin-helper",
+	"name": "Mandarin Helper",
+	"version": "1.0.0",
+	"minAppVersion": "1.2.3",
+	"description": "Displays Hanzi characters with their Pinyin transliteraions and offers convenient dictionary lookup.",
+	"author": "Peter Haider",
+	"authorUrl": "https://github.com/p-of-g-given-h/",
+	"isDesktopOnly": false
+}

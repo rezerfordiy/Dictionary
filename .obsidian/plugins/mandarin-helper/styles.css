@@ -1,0 +1,188 @@
+:root {
+	--mandarin-helper-scale-factor: 1.4;
+	--mandarin-helper-tone-1-color: #008000;
+	--mandarin-helper-tone-2-color: #0000ff;
+	--mandarin-helper-tone-3-color: #ff0000;
+	--mandarin-helper-tone-4-color: #000000;
+	--mandarin-helper-tone-5-color: #d2b48c;
+}
+
+.mandarin-helper-ruby {
+	font-size: calc(1em * var(--mandarin-helper-scale-factor));
+	ruby-position: over;
+	ruby-align: center;
+	ruby-merge: separate;
+}
+
+.mandarin-helper-hanzi {
+	font-size: calc(1em * var(--mandarin-helper-scale-factor));
+}
+
+.mandarin-helper-pinyin {
+	font-size: 0.55em;
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+	color: var(--text-muted);
+	user-select: none;
+}
+
+.cm-editor .mandarin-helper-editor-char {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: calc(1em * var(--mandarin-helper-scale-factor));
+	line-height: 1;
+	vertical-align: bottom;
+}
+
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-editor-pinyin-visible::before {
+	content: attr(data-pinyin);
+	font-size: 0.55em;
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+	color: var(--text-muted);
+	user-select: none;
+	pointer-events: none;
+}
+
+.mandarin-helper-colorize-pinyin[data-tone="1"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-pinyin[data-tone="1"]::before {
+	color: var(--mandarin-helper-tone-1-color);
+}
+
+.mandarin-helper-colorize-pinyin[data-tone="2"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-pinyin[data-tone="2"]::before {
+	color: var(--mandarin-helper-tone-2-color);
+}
+
+.mandarin-helper-colorize-pinyin[data-tone="3"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-pinyin[data-tone="3"]::before {
+	color: var(--mandarin-helper-tone-3-color);
+}
+
+.mandarin-helper-colorize-pinyin[data-tone="4"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-pinyin[data-tone="4"]::before {
+	color: var(--mandarin-helper-tone-4-color);
+}
+
+.mandarin-helper-colorize-pinyin[data-tone="5"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-pinyin[data-tone="5"]::before {
+	color: var(--mandarin-helper-tone-5-color);
+}
+
+.mandarin-helper-colorize-hanzi[data-tone="1"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-hanzi[data-tone="1"] {
+	color: var(--mandarin-helper-tone-1-color);
+}
+
+.mandarin-helper-colorize-hanzi[data-tone="2"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-hanzi[data-tone="2"] {
+	color: var(--mandarin-helper-tone-2-color);
+}
+
+.mandarin-helper-colorize-hanzi[data-tone="3"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-hanzi[data-tone="3"] {
+	color: var(--mandarin-helper-tone-3-color);
+}
+
+.mandarin-helper-colorize-hanzi[data-tone="4"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-hanzi[data-tone="4"] {
+	color: var(--mandarin-helper-tone-4-color);
+}
+
+.mandarin-helper-colorize-hanzi[data-tone="5"],
+.cm-editor .mandarin-helper-editor-char.mandarin-helper-colorize-hanzi[data-tone="5"] {
+	color: var(--mandarin-helper-tone-5-color);
+}
+
+.modal.mandarin-helper-dictionary-modal {
+	width: min(760px, calc(100vw - 3rem));
+}
+
+.mandarin-helper-dictionary-results {
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+	max-height: min(60vh, 32rem);
+	overflow-y: auto;
+	padding-right: 0.25rem;
+}
+
+.mandarin-helper-dictionary-copy-note {
+	margin-bottom: 0.35rem;
+	font-size: 0.8rem;
+	color: var(--text-muted);
+}
+
+.mandarin-helper-dictionary-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	padding: 0.2rem 0;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.mandarin-helper-dictionary-segment {
+	display: inline-flex;
+	align-items: center;
+	min-height: 1.65rem;
+	padding: 0.2rem 0.5rem;
+	border-radius: 999px;
+	background: var(--background-secondary);
+}
+
+.mandarin-helper-dictionary-segment-clickable {
+	cursor: pointer;
+	transition: background-color 120ms ease, transform 120ms ease;
+}
+
+.mandarin-helper-dictionary-segment-clickable:hover,
+.mandarin-helper-dictionary-segment-clickable:focus-visible {
+	background: var(--background-modifier-hover);
+	outline: none;
+}
+
+.mandarin-helper-dictionary-segment-clickable:active {
+	transform: translateY(1px);
+}
+
+.mandarin-helper-dictionary-hanzi-segment {
+	font-size: 1.05rem;
+	background: color-mix(in srgb, var(--interactive-accent) 16%, var(--background-secondary));
+}
+
+.mandarin-helper-dictionary-pinyin-segment {
+	gap: 0.15rem;
+}
+
+.mandarin-helper-dictionary-pinyin-segment .mandarin-helper-pinyin {
+	font-size: 0.85rem;
+	line-height: 1;
+	user-select: text;
+}
+
+.mandarin-helper-dictionary-hanzi-segment .mandarin-helper-hanzi {
+	line-height: 1;
+}
+
+.mandarin-helper-dictionary-translation-segment {
+	color: var(--text-normal);
+}
+
+.mandarin-helper-dictionary-empty {
+	padding: 1rem 0;
+	color: var(--text-muted);
+}
+
+.setting-item.mandarin-helper-dictionary-presets-setting + .setting-item.mandarin-helper-dictionary-source-setting {
+	border-top: 0;
+}
+
+.setting-item.mandarin-helper-dictionary-source-setting .setting-item-control {
+	flex: 1 1 32rem;
+	max-width: none;
+}
+
+.setting-item.mandarin-helper-dictionary-source-setting .setting-item-control input[type="text"] {
+	width: min(100%, 32rem);
+}
